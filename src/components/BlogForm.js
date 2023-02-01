@@ -1,10 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-function BlogForm({ addblogPost }) {
+const INITIAL_POST = [{ title: "React", body: "React is fun" }];
+
+function BlogForm() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [post, setPost] = useState(INITIAL_POST);
+
+  const addblogPost = (newBlogPost) => {
+    setPost([...post, newBlogPost]);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,9 +20,17 @@ function BlogForm({ addblogPost }) {
       body,
     };
 
-    addblogPost(title, body);
+    addblogPost(blogPost);
     setTitle("");
     setBody("");
+  };
+
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const handleBodyChange = (event) => {
+    setBody(event.target.value);
   };
 
   return (
