@@ -36,7 +36,6 @@ function BlogForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicTitle">
-        <Form.Label>Blog Title</Form.Label>
         <Form.Control
           onChange={handleTitleChange}
           value={title}
@@ -46,13 +45,14 @@ function BlogForm() {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicBody">
-        <Form.Label>Blog Body</Form.Label>
-        <Form.Control
+        <textarea
+        id="body"
+        name="body"
           onChange={handleBodyChange}
           value={body}
           type="text"
           placeholder="Enter body"
-        />
+        ></textarea>
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit
