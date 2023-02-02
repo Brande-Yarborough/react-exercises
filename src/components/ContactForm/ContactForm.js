@@ -25,6 +25,7 @@ function ContactForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     const newContact = {
       id: nanoid(),
       firstName, 
@@ -45,13 +46,13 @@ function ContactForm() {
 return (
   <form onSubmit={handleSubmit}>
   <label htmlFor="firstName"></label>
-  <input type="text" placeholder="First Name" />
+  <input onChange={handleFirstNameChange} value={firstName} id="first-name" type="text" placeholder="First Name" />
   <label htmlFor="lastName"></label>
-  <input type="text" placeholder="Last Name"/>
+  <input onChange={handleLastNameChange} value={lastName} id="last-name" type="text" placeholder="Last Name"/>
   <label htmlFor="adddress"></label>
-  <input type="text" placeholder="Address"/>
+  <input onChange={handleAddressChange} value={address} id="address" type="text" placeholder="Address"/>
   <label htmlFor="phoneNumber"></label>
-  <input type="text" placeholder="Phone Number" />
+  <input onChange={handlePhoneNumberChange} value={phoneNumber} id="phone-number" type="text" placeholder="Phone Number" />
   <button type="submit">Add</button>
   </form>
 )
