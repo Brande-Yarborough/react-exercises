@@ -58,17 +58,29 @@ const handlePhoneNumberChange = (event) => {
 };
 
 return (
+  <>
   <form onSubmit={handleSubmit}>
-  <label htmlFor="firstName"></label>
-  <input onChange={handleFirstNameChange} value={firstName} id="first-name" type="text" placeholder="First Name" />
-  <label htmlFor="lastName"></label>
-  <input onChange={handleLastNameChange} value={lastName} id="last-name" type="text" placeholder="Last Name"/>
-  <label htmlFor="adddress"></label>
-  <input onChange={handleAddressChange} value={address} id="address" type="text" placeholder="Address"/>
-  <label htmlFor="phoneNumber"></label>
-  <input onChange={handlePhoneNumberChange} value={phoneNumber} id="phone-number" type="text" placeholder="Phone Number" />
-  <button type="submit">Add</button>
+    <label htmlFor="firstName"></label>
+    <input onChange={handleFirstNameChange} value={firstName} id="first-name" type="text" placeholder="First Name" />
+    <label htmlFor="lastName"></label>
+    <input onChange={handleLastNameChange} value={lastName} id="last-name" type="text" placeholder="Last Name"/>
+    <label htmlFor="adddress"></label>
+    <input onChange={handleAddressChange} value={address} id="address" type="text" placeholder="Address"/>
+    <label htmlFor="phoneNumber"></label>
+    <input onChange={handlePhoneNumberChange} value={phoneNumber} id="phone-number" type="text" placeholder="Phone Number" />
+    <button type="submit">Add</button>
   </form>
+  <div>
+    {contacts.map(contact =>( //mapping contacts and returning each contact with HTML below
+      <div className="contact-container" key={contact.id}>
+        <div>{contact.firstName}</div>
+        <div>{contact.lastName}</div>
+        <div>{contact.address}</div>
+        <div>{contact.phoneNumber}</div>
+      </div>
+    ))}
+  </div>
+  </>
 )
 }
 
