@@ -39,9 +39,23 @@ function ContactForm() {
     setLastName("");
     setAddress("");
     setPhoneNumber("");
+};
 
-    
-  }
+const handleFirstNameChange = (event) => {
+  setFirstName(event.target.value);
+};
+
+const handleLastNameChange = (event) => {
+  setLastName(event.target.value);
+};
+
+const handleAddressChange = (event) => {
+  setAddress(event.target.value);
+};
+
+const handlePhoneNumberChange = (event) => {
+  setPhoneNumber(event.target.value);
+};
 
 return (
   <form onSubmit={handleSubmit}>
