@@ -24,7 +24,7 @@ function BlogList() {
   const [selectedBlog, setSelectedBlog] = useState();
 
   const blogTitlesHTML = blogs.map((blog) => (
-  <button className="btn btn-link" type="button" onClick={() => setSelectedBlog(blog)}>
+  <button key={blog.id} className="btn btn-link" type="button" onClick={() => setSelectedBlog(blog)}>
   <h2>{blog.title}</h2>
   </button>
   ));
@@ -33,10 +33,6 @@ function BlogList() {
   <div className="row">
     <aside className="col-md-4">{blogTitlesHTML}</aside>
     {selectedBlog && <BlogPreview selectedBlog={selectedBlog}/>}
-        <div className="col-md-8">
-            <h2>{selectedBlog.title}</h2>
-            <p>{selectedBlog.body}</p>
-        </div>
     
   </div>
   );
