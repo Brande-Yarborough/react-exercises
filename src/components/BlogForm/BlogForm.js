@@ -15,6 +15,7 @@ function BlogForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     const blogPost = {
       title,
       body,
@@ -44,16 +45,10 @@ function BlogForm() {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicBody">
-        <textarea
-        id="body"
-        name="body"
-          onChange={handleBodyChange}
-          value={body}
-          type="text"
-          placeholder="Enter body"
-        ></textarea>
+      <Form.Group className="mb-3" controlId="body">
+        <Form.Control onChange={handleBodyChange} as="textarea" rows={3} placeholder="Enter body" value={body} />
       </Form.Group>
+    
       <Button variant="primary" type="submit">
         Submit
       </Button>

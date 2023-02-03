@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BlogPreview from "./BlogPreview"
 
 const INITIAL_BLOGS = [
   {
@@ -18,6 +19,27 @@ const INITIAL_BLOGS = [
   },
 ];
 
-function BlogReadingApp() {
-  const [posts, setPosts] = useState("");
+function BlogList() {
+  const [blogs, setBlogs] = useState(INITIAL_BLOGS);
+  const [selectedBlog, setSelectedBlog] = useState();
+
+  const blogTitlesHTML = blogs.map((blog) => (
+  <button className="btn btn-link" type="button" onClick={() => setSelectedBlog(blog)}>
+  <h2>{blog.title}</h2>
+  </button>
+  ));
+
+  return (
+  <div className="row">
+    <aside className="col-md-4">{blogTitlesHTML}</aside>
+    {selectedBlog && <BlogPreview selectedBlog={selectedBlog}/>}
+        <div className="col-md-8">
+            <h2>{selectedBlog.title}</h2>
+            <p>{selectedBlog.body}</p>
+        </div>
+    
+  </div>
+  );
 }
+
+export default BlogList;
