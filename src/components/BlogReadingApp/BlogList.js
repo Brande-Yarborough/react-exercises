@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BlogPreview from "./BlogPreview"
+import BlogPreview from "./BlogPreview";
 
 const INITIAL_BLOGS = [
   {
